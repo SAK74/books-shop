@@ -1,0 +1,16 @@
+.book-wrapper{
+  display: flex;
+}
+.book-content{
+  // display: flex;
+  span{
+    position: relative;
+    cursor: pointer;
+    div{
+      position: absolute;
+      top: 80px;
+      width: 340px;
+      visibility: hidden;
+    }
+  }
+}
