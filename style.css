@@ -1,3 +1,7 @@
+main {
+  display: flex;
+}
+
 .book-wrapper {
   display: flex;
 }
@@ -11,4 +15,55 @@
   top: 80px;
   width: 340px;
   visibility: hidden;
+}
+
+.top-icons .cart {
+  color: lightcoral;
+  font-size: 4rem;
+}
+.top-icons .animation {
+  -webkit-animation: blum 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+          animation: blum 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.top-icons .arrow {
+  cursor: pointer;
+}
+
+#bag {
+  visibility: hidden;
+  min-height: 50px;
+  min-width: 300px;
+  border: thin solid black;
+}
+#bag .closeX {
+  color: red;
+  font-size: 1.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+#bag .pieces::after {
+  content: attr(data-pieces);
+}
+
+@-webkit-keyframes blum {
+  50% {
+    transform: scale(1.2);
+    color: yellow;
+  }
+  to {
+    transform: none;
+    color: lightcoral;
+  }
+}
+
+@keyframes blum {
+  50% {
+    transform: scale(1.2);
+    color: yellow;
+  }
+  to {
+    transform: none;
+    color: lightcoral;
+  }
 }/*# sourceMappingURL=style.css.map */

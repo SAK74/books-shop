@@ -1,3 +1,8 @@
+main{
+  display: flex;
+  // grid-template-columns: 50% 50%;
+}
+
 .book-wrapper{
   display: flex;
 }
@@ -12,5 +17,45 @@
       width: 340px;
       visibility: hidden;
     }
+  }
+}
+.top-icons{
+  .cart{
+    color: lightcoral;
+    font-size: 4rem;
+  }
+  .animation{
+    animation: blum .5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .arrow{
+    cursor: pointer;
+  }
+}
+#bag{
+  visibility: hidden;
+  min-height: 50px;
+  min-width: 300px;
+  border: thin solid black;
+  .closeX{
+    color: red;
+    font-size: 1.5rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    cursor: pointer;
+
+  }
+  .pieces::after{
+    content: attr(data-pieces);
+  }
+}
+
+@keyframes blum{
+  50%{
+    transform: scale(1.2);
+    color: yellow;
+  }
+  to{
+    transform: none;
+    color: lightcoral;
   }
 }

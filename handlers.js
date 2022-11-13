@@ -1,0 +1,102 @@
+function fetchData() {
+  return fetch('./books.json')
+    .then((resp) => resp.json())
+    .then((data) => data)
+    .catch((err) => console.error(err));
+}
+
+function showMore() {
+  this.lastChild.style.visibility = 'visible';
+}
+
+function handleClose(ev) {
+  ev.stopPropagation();
+  this.parentNode.style.visibility = 'hidden';
+}
+
+function handleDragOver(ev) {
+  ev.preventDefault();
+}
+function countTotal() {
+  let total = 0;
+  const bag = document.getElementById('bag');
+  const booksInBag = bag.getElementsByClassName('book-wrapper');
+  for (const book of booksInBag) {
+    const price = book.querySelector('.book-content').querySelector('p').innerHTML.slice(8);
+    const pieces = book.querySelector('.pieces').dataset.pieces;
+    total += price * pieces;
+  }
+  document.getElementById('total').innerText = total;
+  // add animation to shop-cart
+  document.querySelector('.cart').classList.add('animation');
+}
+function handleRemove() {
+  document.getElementById('bag').removeChild(this.parentElement);
+  countTotal();
+}
+function addToBag(id) {
+  const bag = document.getElementById('bag');
+  const arr = Array.from(bag.children);
+  let pieces;
+  if (arr.some((elem) => elem.dataset.id === id)) {
+    pieces = bag.querySelector(`[data-id="${id}"]`).querySelector('.pieces');
+    pieces.dataset.pieces++;
+  } else {
+    const book = document.getElementById(id).cloneNode(true);
+    book.draggable = false;
+    book.removeEventListener('dragstart', handleDragStart);
+    const content = book.querySelector('.book-content');
+    const control = content.querySelector('.control');
+    content.removeChild(control);
+    book.removeAttribute('id');
+    book.dataset.id = id;
+    pieces = document.createElement('div');
+    pieces.classList.add('pieces');
+    pieces.dataset.pieces = 1;
+    pieces.innerText = 'Pieces: ';
+    content.appendChild(pieces);
+    const close = document.createElement('i');
+    close.className = 'fa-solid fa-circle-xmark';
+    close.classList.add('closeX');
+    close.addEventListener('click', handleRemove);
+    book.appendChild(close);
+    bag.insertBefore(book, bag.querySelector('.control'));
+  }
+  countTotal();
+}
+function handleDrop(ev) {
+  addToBag(ev.dataTransfer.getData('text'));
+}
+
+function handleDragStart(ev) {
+  ev.dataTransfer.setData('text', ev.target.id);
+  ev.dataTransfer.effectAllowed = 'copy';
+  const image = ev.target.querySelector('img').cloneNode();
+  image.width = 150;
+  image.height = 200;
+  image.style.transform = 'translateX(-2000px)';
+  image.id = 'temp';
+  document.body.appendChild(image);
+  ev.dataTransfer.setDragImage(image, -10, -10);
+}
+function handleDragEnd() {
+  document.body.removeChild(document.getElementById('temp'));
+}
+function handleAdd() {
+  addToBag(this.parentNode.parentNode.parentNode.id);
+}
+function handleSubmit() {
+  sessionStorage.setItem('amount', document.getElementById('total'));
+  location.assign('./formPage');
+}
+function showBag() {
+  const isVisible = document.getElementById('bag').style.visibility === 'visible';
+  const arrow = document.querySelector('.top-icons').querySelector('.arrow');
+  if (isVisible) {
+    document.getElementById('bag').style.visibility = 'hidden';
+    arrow.classList.replace('fa-angle-up', 'fa-angle-down');
+  } else {
+    document.getElementById('bag').style.visibility = 'visible';
+    arrow.classList.replace('fa-angle-down', 'fa-angle-up');
+  }
+}
