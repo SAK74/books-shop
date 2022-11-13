@@ -1,0 +1,22 @@
+@mixin shadow {
+  box-shadow: 2px 2px 10px 7px grey;
+}
+
+@mixin container{
+  padding: 20px;
+  &>*{
+    margin: 15px 0px;
+  }
+}
+@mixin section {
+  max-width: 500px;
+}
+
+@mixin button {
+  border-radius: 10px;
+  background: #5fc7e9;
+  color: white;
+}
+
+$Icon-size: 4rem;
+$Top-margin: 12px;

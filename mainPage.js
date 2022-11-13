@@ -2,8 +2,7 @@ async function start() {
   const books = (await fetchData()).map((book, id) => {
     const img = document.createElement('img');
     img.src = book.imageLink;
-    img.width = '300';
-    img.height = '400';
+    img.className = 'image';
     img.draggable = false;
     const author = document.createElement('p');
     author.innerText = book.author;
@@ -11,6 +10,7 @@ async function start() {
     title.innerText = book.title;
     const price = document.createElement('p');
     price.innerText = `Price: $${book.price}`;
+    price.className = 'price';
 
     const nodes = [author, title, price];
     const content = document.createElement('span');
@@ -21,8 +21,9 @@ async function start() {
 
     const more = document.createElement('span');
     more.innerText = 'Show more';
+    more.className = 'more';
     const descr = document.createElement('div');
-    descr.appendChild(author);
+    descr.appendChild(title.cloneNode(true));
     descr.appendChild(document.createTextNode(book.description));
     descr_btn = document.createElement('button');
     descr_btn.innerText = 'Close';
@@ -33,6 +34,7 @@ async function start() {
     const btn = document.createElement('button');
     btn.innerText = 'Add to bag';
     btn.addEventListener('click', handleAdd);
+    btn.classList.add('button');
     more.addEventListener('click', showMore);
 
     const control = document.createElement('div');
@@ -74,9 +76,14 @@ async function start() {
   const sbmtBtn = document.createElement('button');
   sbmtBtn.innerText = 'confirm';
   sbmtBtn.addEventListener('click', handleSubmit);
+  sbmtBtn.classList.add('button');
   controlLine.appendChild(sbmtBtn);
   controlLine.className = 'control';
   bagContainer.appendChild(controlLine);
+  const empty = document.createElement('div');
+  empty.innerHTML = 'The bag is empty...';
+  empty.className = 'empty';
+  bagContainer.appendChild(empty);
 
   const bagIcon = document.createElement('div');
   bagIcon.className = 'top-icons';
@@ -87,6 +94,7 @@ async function start() {
   cart.addEventListener('animationend', () => {
     cart.classList.remove('animation');
   });
+  cart.addEventListener('click', showBag);
   const arrow = document.createElement('i');
   arrow.addEventListener('click', showBag);
   arrow.className = 'fa-solid fa-angle-down arrow';

@@ -22,13 +22,24 @@ function countTotal() {
   const bag = document.getElementById('bag');
   const booksInBag = bag.getElementsByClassName('book-wrapper');
   for (const book of booksInBag) {
-    const price = book.querySelector('.book-content').querySelector('p').innerHTML.slice(8);
+    const price = book.querySelector('.book-content').querySelector('.price').innerHTML.slice(8);
     const pieces = book.querySelector('.pieces').dataset.pieces;
     total += price * pieces;
   }
   document.getElementById('total').innerText = total;
-  // add animation to shop-cart
-  document.querySelector('.cart').classList.add('animation');
+  // add animation to shop-cart & show according entry
+  const cart = document.querySelector('.cart');
+  console.log(total);
+  if (total) {
+    bag.querySelector('.control').style.display = 'block';
+    bag.querySelector('.empty').style.display = 'none';
+    cart.style.color = 'lightcoral';
+  } else {
+    bag.querySelector('.control').style.display = 'none';
+    bag.querySelector('.empty').style.display = 'block';
+    cart.style.color = 'initial';
+  }
+  cart.classList.add('animation');
 }
 function handleRemove() {
   document.getElementById('bag').removeChild(this.parentElement);
@@ -72,8 +83,8 @@ function handleDragStart(ev) {
   ev.dataTransfer.setData('text', ev.target.id);
   ev.dataTransfer.effectAllowed = 'copy';
   const image = ev.target.querySelector('img').cloneNode();
-  image.width = 150;
-  image.height = 200;
+  image.style.width = '100px';
+  image.style.height = '150px';
   image.style.transform = 'translateX(-2000px)';
   image.id = 'temp';
   document.body.appendChild(image);
@@ -90,13 +101,13 @@ function handleSubmit() {
   location.assign('./formPage');
 }
 function showBag() {
-  const isVisible = document.getElementById('bag').style.visibility === 'visible';
+  const isVisible = document.getElementById('bag').style.transform === 'scaleY(1)';
   const arrow = document.querySelector('.top-icons').querySelector('.arrow');
   if (isVisible) {
-    document.getElementById('bag').style.visibility = 'hidden';
+    document.getElementById('bag').style.transform = 'scaleY(0)';
     arrow.classList.replace('fa-angle-up', 'fa-angle-down');
   } else {
-    document.getElementById('bag').style.visibility = 'visible';
+    document.getElementById('bag').style.transform = 'scaleY(1)';
     arrow.classList.replace('fa-angle-down', 'fa-angle-up');
   }
 }
