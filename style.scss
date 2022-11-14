@@ -1,59 +1,85 @@
-@import './assets/styles.scss';
+@import "./assets/styles.scss";
 
-#root{
-  padding: 10px 80px;
+#root {
+  padding: 10px 50px;
 }
-
-main{
+header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+  gap: 20px;
+  h1 {
+    align-self: center;
+    transform: scaleY(1.8) skew(10deg, 10deg) rotate3d(1, 1, 1, -0deg);
+    animation: rotate 2s linear 0.2s forwards;
+    color: #5fc7e9;
+  }
+  #head-image {
+    display: flex;
+    align-items: flex-end;
+    width: 45vw;
+    height: 70vh;
+    padding-left: 10px;
+    background-image: url("./assets/images/freddie-marriage-w8JiSVyjy-8-unsplash.jpg");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: lightcyan;
+    a {
+      color: lightcyan;
+    }
+  }
+}
+main {
   display: flex;
   justify-content: space-around;
   gap: 20px;
-  section:last-child{
+  section:last-child {
     display: flex;
     flex-direction: column;
     @include section;
   }
 }
-.catalog{
+.catalog {
   margin-top: $Icon-size;
   @include shadow;
   @include container;
   @include section;
 }
-.book-wrapper{
+.book-wrapper {
+  display: flex;
+  width: 95%;
+  gap: 15px;
+  .book-content {
     display: flex;
-    width: 95%;
-    gap: 15px;
-    .book-content{
-      display: flex;
-      flex-direction: column;
-      p.price{
-        flex-grow: 1;
-      }
+    flex-direction: column;
+    p.price {
+      flex-grow: 1;
     }
   }
-.top-icons{
+}
+.top-icons {
   position: relative;
   bottom: 12px;
   align-self: flex-end;
-  .cart{
+  .cart {
     cursor: pointer;
     font-size: $Icon-size;
   }
-  .animation{
-    animation: blum .5s cubic-bezier(0.4, 0, 0.2, 1);
+  .animation {
+    animation: blum 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
-  .arrow{
+  .arrow {
     cursor: pointer;
   }
 }
-#bag{
+#bag {
   transform: scaleY(0);
-  transition: transform .6s;
+  transition: transform 0.6s;
   transform-origin: top;
   @include shadow;
   @include container;
-  .closeX{
+  .closeX {
     position: absolute;
     right: 30px;
     width: 1.5rem;
@@ -62,27 +88,27 @@ main{
     font-size: 1.5rem;
     color: red;
   }
-  .pieces::after{
+  .pieces::after {
     content: attr(data-pieces);
   }
-  .control{
+  .control {
     display: none;
   }
-  .empty{
+  .empty {
     text-align: center;
   }
 }
 
-.control{
-  &>*{
+.control {
+  & > * {
     margin-inline: 10px;
   }
-  .more{
+  .more {
     position: relative;
     cursor: pointer;
     font-style: italic;
     color: #0fa1d1;
-    div{
+    div {
       position: absolute;
       z-index: 1;
       bottom: 20px;
@@ -93,29 +119,35 @@ main{
       cursor: initial;
       visibility: hidden;
       @include shadow;
-      button{
+      button {
         display: block;
         cursor: pointer;
       }
     }
   }
-  .button{
+  .button {
     cursor: pointer;
     @include button;
   }
 }
-.image{
+.image {
+  border: 1px solid lightgray;
   width: 170px;
   height: 250px;
-  border: 1px solid lightgray;
 }
-@keyframes blum{
-  50%{
+@keyframes blum {
+  50% {
     transform: scale(1.2);
     color: yellow;
   }
-  to{
+  to {
     transform: none;
     color: lightcoral;
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: scaleY(1.8) skew(-30deg, 10deg) rotate3d(1, 1, 1, -400deg);
   }
 }
