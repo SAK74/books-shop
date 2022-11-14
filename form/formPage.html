@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Books-shop</title>
+    <link
+      rel="shortcut icon"
+      href="../assets/icons/book.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="./formStyle.css" />
+    <script src="./script.js"></script>
+  </head>
+  <body onload="start()">
+    Hello!
+    <form>
+      <label>
+        Name:
+        <input name="name" />
+      </label>
+      <label>
+        Surname:
+        <input name="surname" />
+      </label>
+      <label>
+        Delivery date:
+        <input name="delivery" type="date" />
+      </label>
+      <label>
+        Street:
+        <input name="street" />
+      </label>
+      <label>
+        House:
+        <input name="house" type="number" />
+      </label>
+      <label>
+        Flat:
+        <input name="flat" />
+      </label>
+      <fieldset>
+        <legend id="total">Payment</legend>
+        <div>Total amount:</div>
+        <label>
+          <input name="payment" type="radio" />
+          Cash
+        </label>
+        <label>
+          <input name="payment" type="radio" checked />
+          Card
+        </label>
+      </fieldset>
+      <fieldset id="gifts">
+        <legend>Gifts</legend>
+        <label>
+          <input name="pack" type="checkbox" />
+          Pack as a gift
+        </label>
+        <label>
+          <input name="postcard" type="checkbox" />
+          Add postcard
+        </label>
+        <label>
+          <input name="discount" type="checkbox" />
+          Add 2% discount to the next order
+        </label>
+        <label>
+          <input name="pen" type="checkbox" />
+          Branded pen or pencil
+        </label>
+      </fieldset>
+      <button type="submit" disabled>Complete</button>
+    </form>
+  </body>
+</html>
