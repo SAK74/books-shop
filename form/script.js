@@ -81,6 +81,12 @@ function handleGifts(list, ev) {
 }
 
 function start() {
+  const storage = sessionStorage.getItem("total_amount");
+  if (storage) {
+    document
+      .getElementById("total")
+      .appendChild(document.createTextNode(storage));
+  }
   document
     .querySelectorAll("input:not([type=radio], [type=checkbox])")
     .forEach((input) => {

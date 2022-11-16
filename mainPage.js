@@ -69,7 +69,6 @@ async function start() {
   const totalAmount = document.createElement("span");
   const bag = bagContainer.getElementsByClassName("book-wrapper");
 
-  totalAmount.innerText = "0";
   totalAmount.id = "total";
   const controlLine = document.createElement("div");
   controlLine.appendChild(totalAmount);

@@ -29,7 +29,7 @@ function countTotal() {
     const pieces = book.querySelector(".pieces").dataset.pieces;
     total += price * pieces;
   }
-  document.getElementById("total").innerText = total;
+  document.getElementById("total").innerText = "Total: $" + total;
   // add animation to shop-cart & show according entry
   const cart = document.querySelector(".cart");
   if (total) {
@@ -99,7 +99,10 @@ function handleAdd() {
   addToBag(this.parentNode.parentNode.parentNode.id);
 }
 function handleSubmit() {
-  sessionStorage.setItem("amount", document.getElementById("total"));
+  sessionStorage.setItem(
+    "total_amount",
+    document.getElementById("total").innerText
+  );
   location.assign("./form");
 }
 function showBag() {
