@@ -2,9 +2,9 @@
   box-shadow: 2px 2px 10px 7px grey;
 }
 
-@mixin container{
+@mixin container {
   padding: 20px;
-  &>*{
+  & > * {
     margin: 15px 0px;
   }
 }
@@ -16,6 +16,10 @@
   border-radius: 10px;
   background: #5fc7e9;
   color: white;
+  &:active {
+    box-shadow: 2px 2px 5px gray inset;
+    font-size: 0.95rem;
+  }
 }
 
 $Icon-size: 4rem;

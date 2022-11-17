@@ -143,11 +143,43 @@ main section:last-child {
   background: #5fc7e9;
   color: white;
 }
+.control .button:active {
+  box-shadow: 2px 2px 5px gray inset;
+  font-size: 0.95rem;
+}
 
 .image {
   border: 1px solid lightgray;
   width: 170px;
   height: 250px;
+}
+
+hr {
+  margin-top: 2rem;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #5fc7e9;
+  font-weight: 500;
+  padding-inline: 20px;
+}
+footer span:first-of-type {
+  flex-grow: 1;
+}
+footer a:hover {
+  transform: scale(1.05);
+}
+footer .author {
+  margin-right: 30px;
+  text-decoration: none;
+  color: inherit;
+}
+footer .author i {
+  font-size: 1.5rem;
+  margin-inline: 10px;
 }
 
 @-webkit-keyframes blum {

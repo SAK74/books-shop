@@ -108,4 +108,5 @@ async function start() {
   main.appendChild(catalog);
   main.appendChild(section2);
   document.getElementById("root").appendChild(main);
+  addFooter();
 }

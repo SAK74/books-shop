@@ -85,8 +85,8 @@ function handleDragStart(ev) {
   ev.dataTransfer.setData("text", ev.target.id);
   ev.dataTransfer.effectAllowed = "copy";
   const image = ev.target.querySelector("img").cloneNode();
-  image.width = "100px";
-  image.height = "150px";
+  image.style.width = "100px";
+  image.style.height = "150px";
   image.style.transform = "translateX(-2000px)";
   image.id = "temp";
   document.body.appendChild(image);
