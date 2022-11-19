@@ -1,34 +1,9 @@
-#root {
-  padding: 10px 50px;
+body {
+  margin: 8px;
 }
 
-header {
-  display: flex;
-  justify-content: space-around;
-  margin-bottom: 25px;
-  gap: 20px;
-}
-header h1 {
-  align-self: center;
-  transform: scaleY(1.8) skew(10deg, 10deg) rotate3d(1, 1, 1, 0deg);
-  -webkit-animation: rotate 2s linear 0.2s forwards;
-          animation: rotate 2s linear 0.2s forwards;
-  color: #5fc7e9;
-}
-header #head-image {
-  display: flex;
-  align-items: flex-end;
-  width: 45vw;
-  height: 70vh;
-  padding-left: 10px;
-  background-image: url("./assets/images/freddie-marriage-w8JiSVyjy-8-unsplash.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: lightcyan;
-}
-header #head-image a {
-  color: lightcyan;
+#root {
+  padding: 10px 50px;
 }
 
 main {
@@ -154,34 +129,6 @@ main section:last-child {
   height: 250px;
 }
 
-hr {
-  margin-top: 2rem;
-}
-
-footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #5fc7e9;
-  font-weight: 500;
-  padding-inline: 20px;
-}
-footer span:first-of-type {
-  flex-grow: 1;
-}
-footer a:hover {
-  transform: scale(1.05);
-}
-footer .author {
-  margin-right: 30px;
-  text-decoration: none;
-  color: inherit;
-}
-footer .author i {
-  font-size: 1.5rem;
-  margin-inline: 10px;
-}
-
 @-webkit-keyframes blum {
   50% {
     transform: scale(1.2);
@@ -201,15 +148,5 @@ footer .author i {
   to {
     transform: none;
     color: lightcoral;
-  }
-}
-@-webkit-keyframes rotate {
-  to {
-    transform: scaleY(1.8) skew(-30deg, 10deg) rotate3d(1, 1, 1, -400deg);
-  }
-}
-@keyframes rotate {
-  to {
-    transform: scaleY(1.8) skew(-30deg, 10deg) rotate3d(1, 1, 1, -400deg);
   }
 }/*# sourceMappingURL=style.css.map */

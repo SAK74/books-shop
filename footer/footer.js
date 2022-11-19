@@ -1,10 +1,9 @@
-function addFooter() {
-  const root = document.getElementById("root");
-  root.appendChild(document.createElement("hr"));
+function addFooter(parent) {
+  parent.appendChild(document.createElement("hr"));
 
   const footer = document.createElement("footer");
   const rsLogo = document.createElement("img");
-  rsLogo.src = "./assets/icons/rs_school.svg";
+  rsLogo.src = "../assets/icons/rs_school.svg";
   rsLogo.width = 90;
   rsLogo.height = 60;
   rsLogo.alt = "logo";
@@ -29,5 +28,5 @@ function addFooter() {
   copy.innerText = "© 2022";
 
   footer.appendChild(copy);
-  root.appendChild(footer);
+  parent.appendChild(footer);
 }

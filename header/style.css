@@ -1,0 +1,40 @@
+header {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 25px;
+  gap: 20px;
+}
+header h1 {
+  align-self: center;
+  transform: scaleY(1.8) skew(10deg, 10deg) rotate3d(1, 1, 1, 0deg);
+  -webkit-animation: rotate 2s linear 0.2s forwards;
+          animation: rotate 2s linear 0.2s forwards;
+  color: #5fc7e9;
+}
+header #head-image {
+  display: flex;
+  align-items: flex-end;
+  width: 45vw;
+  height: 70vh;
+  padding-left: 10px;
+  background-image: url("../assets/images/freddie-marriage-w8JiSVyjy-8-unsplash.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: lightcyan;
+}
+header #head-image a {
+  color: lightcyan;
+}
+
+@-webkit-keyframes rotate {
+  to {
+    transform: scaleY(1.8) skew(-30deg, 10deg) rotate3d(1, 1, 1, -400deg);
+  }
+}
+
+@keyframes rotate {
+  to {
+    transform: scaleY(1.8) skew(-30deg, 10deg) rotate3d(1, 1, 1, -400deg);
+  }
+}/*# sourceMappingURL=style.css.map */

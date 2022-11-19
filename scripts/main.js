@@ -1,5 +1,4 @@
 async function start() {
-  addHeader();
   const books = (await fetchData()).map((book, id) => {
     const img = document.createElement("img");
     img.src = book.imageLink;
@@ -108,5 +107,4 @@ async function start() {
   main.appendChild(catalog);
   main.appendChild(section2);
   document.getElementById("root").appendChild(main);
-  addFooter();
 }

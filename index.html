@@ -12,14 +12,31 @@
     <link rel="stylesheet" href="./assets/fontawesome/css/solid.css" />
     <link rel="stylesheet" href="./assets/fontawesome/css/brands.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="./header/style.css" />
+    <link rel="stylesheet" href="./footer/style.css" />
     <title>Books-shop</title>
     <script src="./scripts/main.js"></script>
     <script src="./scripts/handlers.js"></script>
-    <script src="./scripts/header.js"></script>
-    <script src="./scripts/footer.js"></script>
+    <script src="./header/header.js"></script>
+    <script src="./footer/footer.js"></script>
+    <link
+      rel="shortcut icon"
+      href="./assets/icons/book.ico"
+      type="image/x-icon"
+    />
   </head>
 
   <body onload="start();">
+    <script>
+      addHeader(document.body);
+    </script>
+    <hr />
     <div id="root"></div>
+    <script>
+      start();
+    </script>
+    <script>
+      addFooter(document.body);
+    </script>
   </body>
 </html>

@@ -11,9 +11,16 @@
       type="image/x-icon"
     />
     <link rel="stylesheet" href="./formStyle.css" />
+    <link rel="stylesheet" href="../header/style.css" />
+    <link rel="stylesheet" href="../footer/style.css" />
     <script src="./script.js"></script>
+    <script src="../header/header.js"></script>
+    <script src="../footer/footer.js"></script>
   </head>
   <body onload="start()">
+    <script>
+      addHeader(document.body);
+    </script>
     <form>
       <label>
         Name:
@@ -72,5 +79,8 @@
       </fieldset>
       <button type="submit" disabled>Complete</button>
     </form>
+    <script>
+      addFooter(document.body);
+    </script>
   </body>
 </html>

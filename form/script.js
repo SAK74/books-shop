@@ -52,7 +52,7 @@ function validation() {
       isInvalid = !name || lessThan(value, 5);
       break;
     case "house":
-      isInvalid = !value || value < 0;
+      isInvalid = !value || value <= 0;
       break;
     case "flat":
       isInvalid = !/^[0-9]+$|\-/g.test(value) || /^\-/g.test(value);

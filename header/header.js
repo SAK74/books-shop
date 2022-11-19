@@ -1,4 +1,4 @@
-function addHeader() {
+function addHeader(parent) {
   const imageWrapper = document.createElement("div");
   imageWrapper.id = "head-image";
   const sourceFoto = document.createElement("a");
@@ -25,6 +25,5 @@ function addHeader() {
   header.appendChild(imageWrapper);
   header.appendChild(title);
 
-  const root = document.getElementById("root");
-  root.appendChild(header);
+  parent.appendChild(header);
 }

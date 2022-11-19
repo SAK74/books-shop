@@ -1,0 +1,26 @@
+hr {
+  margin-top: 2rem;
+}
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #5fc7e9;
+  font-weight: 600;
+  padding-inline: 20px;
+  span:first-of-type {
+    flex-grow: 1;
+  }
+  a:hover {
+    transform: scale(1.05);
+  }
+  .author {
+    margin-right: 30px;
+    text-decoration: none;
+    color: inherit;
+    i {
+      font-size: 1.5rem;
+      margin-inline: 10px;
+    }
+  }
+}
