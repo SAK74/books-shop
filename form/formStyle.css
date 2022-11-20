@@ -46,6 +46,13 @@ form fieldset label {
   align-items: center;
   margin-inline: 15px;
 }
+form fieldset:nth-last-of-type(1) {
+  display: flex;
+  flex-direction: column;
+}
+form fieldset:nth-last-of-type(1) label {
+  margin-inline: 0;
+}
 
 #info {
   position: fixed;

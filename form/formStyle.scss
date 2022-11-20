@@ -43,6 +43,13 @@ form {
       align-items: center;
       margin-inline: 15px;
     }
+    &:nth-last-of-type(1) {
+      display: flex;
+      flex-direction: column;
+      label {
+        margin-inline: 0;
+      }
+    }
   }
 }
 #info {
