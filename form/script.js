@@ -129,5 +129,5 @@ function handleBack() {
 function handleConfirm() {
   const data = document.querySelector("form").elements;
   // do something
-  location.assign("../");
+  location.assign("./");
 }
