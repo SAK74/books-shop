@@ -3,7 +3,7 @@ function addFooter(parent) {
 
   const footer = document.createElement("footer");
   const rsLogo = document.createElement("img");
-  rsLogo.src = "../assets/icons/rs_school.svg";
+  rsLogo.src = "./assets/icons/rs_school.svg";
   rsLogo.width = 90;
   rsLogo.height = 60;
   rsLogo.alt = "logo";
