@@ -21,7 +21,8 @@
     <script>
       addHeader(document.body);
     </script>
-    <form>
+    <form onsubmit="handleSubmit(this, event);">
+      <h3>Select data to delivery:</h3>
       <label>
         Name:
         <input name="name" />
@@ -48,7 +49,7 @@
       </label>
       <fieldset>
         <legend>Payment</legend>
-        <div id="total">Total amount: $</div>
+        <div id="total">Total amount:</div>
         <label>
           <input name="payment" type="radio" />
           Cash
@@ -79,6 +80,12 @@
       </fieldset>
       <button type="submit" disabled>Complete</button>
     </form>
+    <div id="info">
+      <div>
+        <button onclick="handleBack();">Change</button>
+        <button onclick="handleConfirm();">Confirm</button>
+      </div>
+    </div>
     <script>
       addFooter(document.body);
     </script>

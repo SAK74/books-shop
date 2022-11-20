@@ -101,7 +101,7 @@ function handleAdd() {
 function handleSubmit() {
   sessionStorage.setItem(
     "total_amount",
-    document.getElementById("total").innerText
+    document.getElementById("total").innerText.slice(6)
   );
   location.assign("./form");
 }

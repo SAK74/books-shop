@@ -67,16 +67,14 @@ function validation() {
   input.nextElementSibling.style.visibility = isInvalid ? "visible" : "hidden";
   checkComplete();
 }
-
-function handleGifts(list, ev) {
-  let checkedLength = 0;
-  for (const gift of list) {
-    if (gift.checked) {
-      checkedLength++;
-    }
+const checkedGifts = [];
+function handleGifts(list, { target }) {
+  checkedGifts.push(target.id);
+  if (checkedGifts.length > 2) {
+    checkedGifts.shift();
   }
-  if (checkedLength > 2) {
-    ev.target.checked = false;
+  for (const gift of list) {
+    gift.checked = checkedGifts.includes(gift.id);
   }
 }
 
@@ -96,9 +94,40 @@ function start() {
   document
     .getElementById("gifts")
     .querySelectorAll("input")
-    .forEach((gift, i, list) =>
+    .forEach((gift, i, list) => {
+      gift.id = `gift${i}`;
       gift.addEventListener("change", function (ev) {
         handleGifts(list, ev);
-      })
-    );
+      });
+    });
+}
+
+function handleSubmit(form, ev) {
+  ev.preventDefault();
+  const elements = form.elements;
+  const elemValue = (name) => form.elements.namedItem(name).value;
+  const info = document.getElementById("info");
+  const content = document.createElement("div");
+  content.appendChild(
+    document.createTextNode(
+      `The order created. \n\n The delivery address is ${elemValue(
+        "street"
+      )} street, house ${elemValue("house")}, flat ${elemValue(
+        "flat"
+      )}.\nCustomer ${elemValue("name")} ${elemValue("surname")}.`
+    )
+  );
+  info.insertBefore(content, info.querySelector("div"));
+  info.style.transform = "scale(1)";
+}
+
+function handleBack() {
+  const info = document.getElementById("info");
+  info.style.transform = "scale(0)";
+  info.firstElementChild.remove();
+}
+function handleConfirm() {
+  const data = document.querySelector("form").elements;
+  // do something
+  location.assign("../");
 }
