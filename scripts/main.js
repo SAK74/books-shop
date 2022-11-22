@@ -106,5 +106,8 @@ async function start() {
   const main = document.createElement("main");
   main.appendChild(catalog);
   main.appendChild(section2);
-  document.getElementById("root").appendChild(main);
+
+  const fragment = new DocumentFragment();
+  fragment.appendChild(main);
+  document.getElementById("root").appendChild(fragment);
 }

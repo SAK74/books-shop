@@ -26,10 +26,10 @@ function addHeader(parent) {
   wrapper.className = "header-wrapper";
   wrapper.appendChild(imageWrapper);
   wrapper.appendChild(title);
-  // header.appendChild(imageWrapper);
-  // header.appendChild(title);
   header.appendChild(wrapper);
-  header.appendChild(document.createElement("hr"));
 
-  parent.appendChild(header);
+  const fragment = new DocumentFragment();
+  fragment.appendChild(header);
+  fragment.appendChild(document.createElement("hr"));
+  parent.appendChild(fragment);
 }
