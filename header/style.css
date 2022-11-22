@@ -1,17 +1,17 @@
-header {
+.header-wrapper {
   display: flex;
   justify-content: space-around;
   margin-bottom: 25px;
   gap: 20px;
 }
-header h1 {
+.header-wrapper h1 {
   align-self: center;
   transform: scaleY(1.8) skew(10deg, 10deg) rotate3d(1, 1, 1, 0deg);
   -webkit-animation: rotate 2s linear 0.2s forwards;
           animation: rotate 2s linear 0.2s forwards;
   color: #5fc7e9;
 }
-header #head-image {
+.header-wrapper #head-image {
   display: flex;
   align-items: flex-end;
   width: 45vw;
@@ -23,7 +23,7 @@ header #head-image {
   background-repeat: no-repeat;
   color: lightcyan;
 }
-header #head-image a {
+.header-wrapper #head-image a {
   color: lightcyan;
 }
 
