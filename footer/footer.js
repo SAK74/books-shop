@@ -1,6 +1,4 @@
 function addFooter(parent) {
-  parent.appendChild(document.createElement("hr"));
-
   const footer = document.createElement("footer");
   const rsLogo = document.createElement("img");
   rsLogo.src = "./assets/icons/rs_school.svg";
@@ -28,5 +26,9 @@ function addFooter(parent) {
   copy.innerText = "© 2022";
 
   footer.appendChild(copy);
-  parent.appendChild(footer);
+
+  const fragment = new DocumentFragment();
+  fragment.appendChild(document.createElement("hr"));
+  fragment.appendChild(footer);
+  parent.appendChild(fragment);
 }
