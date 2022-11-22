@@ -22,8 +22,14 @@ function addHeader(parent) {
   title.innerText = "Welcome to amazing book shop!";
 
   const header = document.createElement("header");
-  header.appendChild(imageWrapper);
-  header.appendChild(title);
+  const wrapper = document.createElement("div");
+  wrapper.className = "header-wrapper";
+  wrapper.appendChild(imageWrapper);
+  wrapper.appendChild(title);
+  // header.appendChild(imageWrapper);
+  // header.appendChild(title);
+  header.appendChild(wrapper);
+  header.appendChild(document.createElement("hr"));
 
   parent.appendChild(header);
 }
